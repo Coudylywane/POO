@@ -2,9 +2,9 @@
 namespace App\Entity;
 class Personne {
     protected int $id;
-    protected string $nomComplet;
+    protected string $nom;
+    protected string $prenom;
     protected string $login;
-    protected string $password;
     protected string $role="ROLE_PERSONNE";
 
 
@@ -32,25 +32,6 @@ class Personne {
         return $this;
     }
 
-    /**
-     * Get the value of nomComplet
-     */ 
-    public function getNomComplet()
-    {
-        return $this->nomComplet;
-    }
-
-    /**
-     * Set the value of nomComplet
-     *
-     * @return  self
-     */ 
-    public function setNomComplet($nomComplet)
-    {
-        $this->nomComplet = $nomComplet;
-
-        return $this;
-    }
 
     /**
      * Get the value of login
@@ -72,25 +53,7 @@ class Personne {
         return $this;
     }
 
-    /**
-     * Get the value of password
-     */ 
-    public function getPassword()
-    {
-        return $this->password;
-    }
-
-    /**
-     * Set the value of password
-     *
-     * @return  self
-     */ 
-    public function setPassword($password)
-    {
-        $this->password = $password;
-
-        return $this;
-    }
+   
 
     public static function  fromArray(object $personne):array{
       $arr=  array_values((array)$personne);
@@ -98,5 +61,53 @@ class Personne {
        $arr[]="";
        $arr[]="";
        return  $arr;
+    }
+
+    /**
+     * Get the value of nom
+     *
+     * @return  string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * Set the value of nom
+     *
+     * @param  string  $nom
+     *
+     * @return  self
+     */
+    public function setNom(string $nom)
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of prenom
+     *
+     * @return  string
+     */
+    public function getPrenom()
+    {
+        return $this->prenom;
+    }
+
+    /**
+     * Set the value of prenom
+     *
+     * @param  string  $prenom
+     *
+     * @return  self
+     */
+    public function setPrenom(string $prenom)
+    {
+        $this->prenom = $prenom;
+
+        return $this;
     }
 }

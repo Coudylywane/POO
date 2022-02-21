@@ -12,13 +12,12 @@ class PersonneManager extends AbstractManager{
         $this->primaryKey="id_personne";
     }
    
-
     public function insert(array $model):int{
-         $sql="insert into  $this->tableName (nom_complet,login,password,role,tuteur,matricule,grade) values(?,?,?,?,?,?,?)";
-        return $this->dataBase->executeUpdate($sql,$model);
+      $sql = "INSERT INTO $this->tableName( `nom`, `prenom`, `email`, `role`, `matricule`, `date_naissance`, `id_bourse`, `adresse`, `password`,`telephone`, `id_chambre`) VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+      return $this->dataBase->executeUpdate($sql,$model);
     }
       public  function update(array $model):int{
-        $sql="update  $this->tableName set nom_complet=?,login=?,password=?,role=?,tuteur=?,matricule=?,grade=? where $this->primaryKey=?";
+        $sql="update  $this->tableName set nom_complet=?,,login=?,,password=?,,role=?,,tuteur=?,,matricule=?,,grade=?, where $this->primaryKey=?,";
         return $this->dataBase->executeUpdate($sql,$model);
       }
 }

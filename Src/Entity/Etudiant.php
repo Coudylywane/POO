@@ -1,15 +1,16 @@
 <?php
 namespace App\Entity;
 
+use DateTime;
 use Doctrine\Common\Collections\ArrayCollection;
 
 class Etudiant extends Personne implements EntityInterface{
     
-    private string $matricule;
-    private string $tuteur;
+    protected string $matricule;
+    protected int $telephone;
+    protected string $dateNaiss;
    //Propriete Navigationnelle OneToMany
    //Collection
-   private ArrayCollection $inscriptions;
 
 
 
@@ -17,65 +18,7 @@ class Etudiant extends Personne implements EntityInterface{
    {
        parent::__construct();
        $this->role="ROLE_ETUDIANT";
-       $this->inscriptions=new ArrayCollection();
    }
-    /**
-     * Get the value of tuteur
-     */ 
-    public function getTuteur()
-    {
-        return $this->tuteur;
-    }
-
-    /**
-     * Set the value of tuteur
-     *
-     * @return  self
-     */ 
-    public function setTuteur($tuteur)
-    {
-        $this->tuteur = $tuteur;
-
-        return $this;
-    }
-
-   /**
-    * Get the value of inscriptions
-    */ 
-   public function getInscriptions()
-   {
-      return $this->inscriptions;
-   }
-
-   /**
-    * Set the value of inscriptions
-    *
-    * @return  self
-    */ 
-   public function setInscriptions($inscriptions)
-   {
-      $this->inscriptions = $inscriptions;
-
-      return $this;
-   }
-
-  public function addInscription(Inscription $inscription):self{
-       if( !$this->inscriptions->contains($inscription)){
-
-           $this->inscriptions->add($inscription);
-           //Relation Inverse
-           $inscription->setEtudiant($this);
-       }
-       return $this;
-  }
-  public function removeInscription(Inscription $inscription):self{
-    if($this->inscriptions->contains($inscription)){
-        $inscription->setEtudiant(null);
-        $this->inscriptions->removeElement($inscription);
-        
-    }
-    return $this;
-}
 
 public static function  fromArray(object $personne):array{
     $arr=  array_values((array)$personne);
@@ -105,6 +48,54 @@ public static function  fromArray(object $personne):array{
     public function setMatricule($matricule)
     {
         $this->matricule = $matricule;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of telephone
+     *
+     * @return  int
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+
+    /**
+     * Set the value of telephone
+     *
+     * @param  int  $telephone
+     *
+     * @return  self
+     */
+    public function setTelephone(int $telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of dateNaiss
+     *
+     * @return  string
+     */
+    public function getDateNaiss()
+    {
+        return $this->dateNaiss;
+    }
+
+    /**
+     * Set the value of dateNaiss
+     *
+     * @param  string  $dateNaiss
+     *
+     * @return  self
+     */
+    public function setDateNaiss(string $dateNaiss)
+    {
+        $this->dateNaiss = $dateNaiss;
 
         return $this;
     }
