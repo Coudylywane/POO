@@ -1,18 +1,26 @@
 <div class="tout">
-<div class="filtre">
-  <label for="">Chambre</label>
-  <select class="form-control ml-4" name="etat" id="">
-    <option value="valider">Une personne</option>
-    <option value="en cour">Deux personnes</option>
-  </select>
-</div>
-<div class="filtre">
-  <label for="">Bourse</label>
-  <select class="form-control ml-4" name="etat" id="">
-    <option value="valider">Demie bourse</option>
-    <option value="en cour">Bourse entiere</option>
-  </select>
-</div>
+  <div class="etu">
+  <h2 >
+    Liste des Etudiants
+  </h2>
+  </div>
+  <div class="filtres">
+  <label class="labele-filtre" for="">Chambre</label>
+  <div class="select-style">
+      <select>
+          <option value="perso">Perso</option>
+          <option value="double">Double</option>
+      </select>
+    </div>
+    <label class="labele-filtre" for="">Bourse</label>
+    <div class="select-style">
+      <select>
+          <option value="demi-bourse">Demi-Bourse</option>
+          <option value="bourse-entier">Bourse-Entier</option>
+      </select>
+    </div>
+    <button type="button" class="ok">OK</button>
+  </div>
 <div class="tables">
   <table>
   <tr>

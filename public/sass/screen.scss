@@ -5,6 +5,7 @@
 
 @import "compass/reset";
 
+
 *{
     box-sizing: border-box;
     overflow: hidden;
@@ -60,8 +61,7 @@ body{
 
 
 .btn {
-  margin-top: 46px;
-  margin-left: 154px;
+  margin-top: 8px;
   background-color: #1B2265;
   color: white;
 }
@@ -80,8 +80,10 @@ body{
 }
 
 
-.form{
-  margin-left: 80px;
+form{
+  padding: 200px;
+  margin-top: -100px;
+
 }
 
 
@@ -188,6 +190,7 @@ nav{
     align-items: center;
     height: 100vh;
     width: 85%;
+
    
 }
 
@@ -196,7 +199,6 @@ nav{
 //////////////////////////////////////////////////////
 
 
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
 
 :root{
     --success-color: #2ecc71;
@@ -210,9 +212,6 @@ nav{
 
 
 .container2{
-  /* justify-items: center;
-  align-items: center;
-  min-height: 100vh; */
   margin-left: auto;
   margin-right: auto;
     background-color: #fff;
@@ -220,6 +219,7 @@ nav{
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     width: 70%;
     margin-top: 5%;
+    height: 600PX;
 }
 
 h2{
@@ -242,15 +242,18 @@ h2{
     color: #777;
     display: block;
     margin-bottom: 5px;
+    margin-left: 21px;
+
 }
 
 .form-controle input{
-    border: 2px solid #f0f0f0;
-    border-radius: 4px;
-    display: block;
-    width: 50%;
-    padding: 10px;
-    font-size: 14px;
+  border: 2px solid #f0f0f0;
+  border-radius: 4px;
+  display: block;
+  width: 300px;
+  padding: 13px;
+  font-size: 14px;
+  margin-left: 21px;
 }
 
 .form-controle input:focus{
@@ -325,8 +328,88 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 .tout{
   flex-direction: column;
   width: 100%;
+  display: flex;
+}
+
+/////////////////////////////////filtre///////////////////@at-root
+
+.select-style {
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  width:15%;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #fff;
+  background: #fff;
+  position: relative;
+}
+.select-style select {
+  padding: 5px 8px;
+  width: 130%;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.select-style:after {
+  top: 50%;
+  left: 85%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(0, 0, 0, 0);
+  border-top-color: #000000;
+  border-width: 5px;
+  margin-top: -2px;
+  z-index: 100;
+}
+.select-style select:focus {
+  outline: none;
+}
+
+.filtres{
+  display: flex;
+  margin-top: 30px;
+  margin-left: 60px;
+}
+
+
+
+.labele-filtre{
+  margin-top: 6px;
+  margin-right: 8px;
 }
   
+////////////////////////////////button/////////////////////////@at-root
+
+.ok{
+  background-color: #1B2265;
+  color: white;
+  border: none;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  margin-left: 38%;
+}
+
+.etu{
+  text-align: center;
+  background-color: #1B2265;
+  color: white;
+  height: 30px;
+}
+.etu h2{
+  align-items: center;
+
+}
+
   
   
   

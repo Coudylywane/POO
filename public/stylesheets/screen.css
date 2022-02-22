@@ -2,7 +2,6 @@
  * In this file you should write your main styles. (or centralize your imports)
  * Import this file using the following HTML or equivalent:
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
-@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap");
 /* line 5, ../../../../../../var/lib/gems/2.7.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -68,20 +67,20 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   display: block;
 }
 
-/* line 8, ../sass/screen.scss */
+/* line 9, ../sass/screen.scss */
 * {
   box-sizing: border-box;
   overflow: hidden;
 }
 
-/* line 13, ../sass/screen.scss */
+/* line 14, ../sass/screen.scss */
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* line 19, ../sass/screen.scss */
+/* line 20, ../sass/screen.scss */
 .bleu {
   display: flex;
   justify-content: center;
@@ -90,7 +89,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   background-color: #1B2265;
 }
 
-/* line 27, ../sass/screen.scss */
+/* line 28, ../sass/screen.scss */
 .blanc {
   display: flex;
   background-color: white;
@@ -98,7 +97,7 @@ article, aside, details, figcaption, figure, footer, header, hgroup, main, menu,
   width: 800px;
 }
 
-/* line 34, ../sass/screen.scss */
+/* line 35, ../sass/screen.scss */
 body {
   display: flex;
   height: 100vh;
@@ -106,21 +105,21 @@ body {
   padding: 0;
 }
 
-/* line 41, ../sass/screen.scss */
+/* line 42, ../sass/screen.scss */
 #connect {
   margin-left: 52px;
   margin-top: 47px;
   color: #1B2265;
 }
 
-/* line 47, ../sass/screen.scss */
+/* line 48, ../sass/screen.scss */
 #titre {
   color: #1B2265;
   margin-left: 55px;
   margin-top: 20px;
 }
 
-/* line 53, ../sass/screen.scss */
+/* line 54, ../sass/screen.scss */
 .input {
   width: 331px;
   margin-left: 52px;
@@ -128,10 +127,9 @@ body {
   border-radius: 5px;
 }
 
-/* line 62, ../sass/screen.scss */
+/* line 63, ../sass/screen.scss */
 .btn {
-  margin-top: 46px;
-  margin-left: 154px;
+  margin-top: 8px;
   background-color: #1B2265;
   color: white;
 }
@@ -151,16 +149,17 @@ body {
 }
 
 /* line 83, ../sass/screen.scss */
-.form {
-  margin-left: 80px;
+form {
+  padding: 200px;
+  margin-top: -100px;
 }
 
-/* line 88, ../sass/screen.scss */
+/* line 90, ../sass/screen.scss */
 .logo {
   height: 200px;
 }
 
-/* line 94, ../sass/screen.scss */
+/* line 96, ../sass/screen.scss */
 #menu-accordeon {
   padding: 0;
   margin: 0;
@@ -169,7 +168,7 @@ body {
   width: 180px;
 }
 
-/* line 101, ../sass/screen.scss */
+/* line 103, ../sass/screen.scss */
 #menu-accordeon ul {
   padding: 0;
   margin: 0;
@@ -177,14 +176,14 @@ body {
   text-align: center;
 }
 
-/* line 107, ../sass/screen.scss */
+/* line 109, ../sass/screen.scss */
 #menu-accordeon li {
   border-radius: 6px;
   margin-bottom: 2px;
   margin-top: 50px;
 }
 
-/* line 113, ../sass/screen.scss */
+/* line 115, ../sass/screen.scss */
 #menu-accordeon li li {
   max-height: 0;
   overflow: hidden;
@@ -196,7 +195,7 @@ body {
   margin: 0;
 }
 
-/* line 123, ../sass/screen.scss */
+/* line 125, ../sass/screen.scss */
 #menu-accordeon a {
   display: block;
   text-decoration: none;
@@ -206,33 +205,33 @@ body {
   font-size: 1.2em;
 }
 
-/* line 131, ../sass/screen.scss */
+/* line 133, ../sass/screen.scss */
 #menu-accordeon ul li a, #menu-accordeon li:hover li a {
   font-size: 1em;
 }
 
-/* line 134, ../sass/screen.scss */
+/* line 136, ../sass/screen.scss */
 #menu-accordeon li:hover {
   background: #729EBF;
 }
 
-/* line 137, ../sass/screen.scss */
+/* line 139, ../sass/screen.scss */
 #menu-accordeon li li:hover {
   background: #999;
 }
 
-/* line 140, ../sass/screen.scss */
+/* line 142, ../sass/screen.scss */
 #menu-accordeon ul li:last-child {
   border-radius: 0 0 6px 6px;
   border: none;
 }
 
-/* line 144, ../sass/screen.scss */
+/* line 146, ../sass/screen.scss */
 #menu-accordeon li:hover li {
   max-height: 15em;
 }
 
-/* line 152, ../sass/screen.scss */
+/* line 154, ../sass/screen.scss */
 nav {
   background-color: #1B2265;
   display: flex;
@@ -240,26 +239,26 @@ nav {
   width: 15%;
 }
 
-/* line 161, ../sass/screen.scss */
+/* line 163, ../sass/screen.scss */
 .logo {
   margin-left: 40px;
   margin-top: 14px;
 }
 
-/* line 166, ../sass/screen.scss */
+/* line 168, ../sass/screen.scss */
 .icones {
   width: 10%;
   margin-right: 5px;
 }
 
-/* line 178, ../sass/screen.scss */
+/* line 180, ../sass/screen.scss */
 .error {
   color: red;
   font-size: 50px;
   margin-top: 20px;
 }
 
-/* line 185, ../sass/screen.scss */
+/* line 187, ../sass/screen.scss */
 .container1 {
   display: flex;
   justify-content: center;
@@ -268,22 +267,19 @@ nav {
   width: 85%;
 }
 
-/* line 201, ../sass/screen.scss */
+/* line 203, ../sass/screen.scss */
 :root {
   --success-color: #2ecc71;
   --error-color: #e74c3c;
 }
 
-/* line 206, ../sass/screen.scss */
+/* line 208, ../sass/screen.scss */
 * {
   box-sizing: border-box;
 }
 
-/* line 212, ../sass/screen.scss */
+/* line 214, ../sass/screen.scss */
 .container2 {
-  /* justify-items: center;
-  align-items: center;
-  min-height: 100vh; */
   margin-left: auto;
   margin-right: auto;
   background-color: #fff;
@@ -291,6 +287,7 @@ nav {
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   width: 70%;
   margin-top: 5%;
+  height: 600PX;
 }
 
 /* line 225, ../sass/screen.scss */
@@ -316,35 +313,37 @@ h2 {
   color: #777;
   display: block;
   margin-bottom: 5px;
+  margin-left: 21px;
 }
 
-/* line 247, ../sass/screen.scss */
+/* line 249, ../sass/screen.scss */
 .form-controle input {
   border: 2px solid #f0f0f0;
   border-radius: 4px;
   display: block;
-  width: 50%;
-  padding: 10px;
+  width: 300px;
+  padding: 13px;
   font-size: 14px;
+  margin-left: 21px;
 }
 
-/* line 256, ../sass/screen.scss */
+/* line 259, ../sass/screen.scss */
 .form-controle input:focus {
   outline: 0;
   border-color: #777;
 }
 
-/* line 261, ../sass/screen.scss */
+/* line 264, ../sass/screen.scss */
 .form-controle.success input {
   border-color: var(--success-color);
 }
 
-/* line 265, ../sass/screen.scss */
+/* line 268, ../sass/screen.scss */
 .form-controle.error input {
   border-color: var(--error-color);
 }
 
-/* line 269, ../sass/screen.scss */
+/* line 272, ../sass/screen.scss */
 .form-controle small {
   color: var(--error-color);
   position: absolute;
@@ -353,12 +352,12 @@ h2 {
   visibility: hidden;
 }
 
-/* line 277, ../sass/screen.scss */
+/* line 280, ../sass/screen.scss */
 .form-controle.error small {
   visibility: visible;
 }
 
-/* line 281, ../sass/screen.scss */
+/* line 284, ../sass/screen.scss */
 .form button {
   cursor: pointer;
   background-color: #3498db;
@@ -372,13 +371,13 @@ h2 {
   width: 50%;
 }
 
-/* line 295, ../sass/screen.scss */
+/* line 298, ../sass/screen.scss */
 table {
   border-collapse: collapse;
   width: 100%;
 }
 
-/* line 300, ../sass/screen.scss */
+/* line 303, ../sass/screen.scss */
 th {
   text-align: left;
   padding: 8px;
@@ -388,19 +387,19 @@ th {
   text-align: center;
 }
 
-/* line 309, ../sass/screen.scss */
+/* line 312, ../sass/screen.scss */
 td {
   text-align: left;
   padding: 8px;
   text-align: center;
 }
 
-/* line 315, ../sass/screen.scss */
+/* line 318, ../sass/screen.scss */
 tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
-/* line 317, ../sass/screen.scss */
+/* line 320, ../sass/screen.scss */
 .tables {
   overflow-x: auto;
   width: 90%;
@@ -409,8 +408,94 @@ tr:nth-child(even) {
   margin-top: 20px;
 }
 
-/* line 325, ../sass/screen.scss */
+/* line 328, ../sass/screen.scss */
 .tout {
   flex-direction: column;
   width: 100%;
+  display: flex;
+}
+
+/* line 336, ../sass/screen.scss */
+.select-style {
+  padding: 0;
+  margin: 0;
+  border: 1px solid #ccc;
+  width: 15%;
+  border-radius: 3px;
+  overflow: hidden;
+  background-color: #fff;
+  background: #fff;
+  position: relative;
+}
+
+/* line 347, ../sass/screen.scss */
+.select-style select {
+  padding: 5px 8px;
+  width: 130%;
+  border: none;
+  box-shadow: none;
+  background-color: transparent;
+  background-image: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* line 358, ../sass/screen.scss */
+.select-style:after {
+  top: 50%;
+  left: 85%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: transparent;
+  border-top-color: #000000;
+  border-width: 5px;
+  margin-top: -2px;
+  z-index: 100;
+}
+
+/* line 373, ../sass/screen.scss */
+.select-style select:focus {
+  outline: none;
+}
+
+/* line 377, ../sass/screen.scss */
+.filtres {
+  display: flex;
+  margin-top: 30px;
+  margin-left: 60px;
+}
+
+/* line 385, ../sass/screen.scss */
+.labele-filtre {
+  margin-top: 6px;
+  margin-right: 8px;
+}
+
+/* line 392, ../sass/screen.scss */
+.ok {
+  background-color: #1B2265;
+  color: white;
+  border: none;
+  width: 100px;
+  height: 30px;
+  border-radius: 5px;
+  margin-left: 38%;
+}
+
+/* line 402, ../sass/screen.scss */
+.etu {
+  text-align: center;
+  background-color: #1B2265;
+  color: white;
+  height: 30px;
+}
+
+/* line 408, ../sass/screen.scss */
+.etu h2 {
+  align-items: center;
 }
