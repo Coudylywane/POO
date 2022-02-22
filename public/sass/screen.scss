@@ -290,7 +290,42 @@ h2{
     margin-top: 20px;
     width: 50%;
 }
+/////////////////////////////////liste//////////////////////@at-root
 
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th {
+  text-align: left;
+  padding: 8px;
+  background-color: #1B2265;
+  color: white;
+  height: 60px;
+  text-align: center;
+}
+
+td{
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+.tables{
+  overflow-x: auto;  
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+.tout{
+  flex-direction: column;
+  width: 100%;
+}
   
   
   

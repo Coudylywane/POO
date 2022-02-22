@@ -371,3 +371,46 @@ h2 {
   margin-top: 20px;
   width: 50%;
 }
+
+/* line 295, ../sass/screen.scss */
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* line 300, ../sass/screen.scss */
+th {
+  text-align: left;
+  padding: 8px;
+  background-color: #1B2265;
+  color: white;
+  height: 60px;
+  text-align: center;
+}
+
+/* line 309, ../sass/screen.scss */
+td {
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+}
+
+/* line 315, ../sass/screen.scss */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* line 317, ../sass/screen.scss */
+.tables {
+  overflow-x: auto;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+}
+
+/* line 325, ../sass/screen.scss */
+.tout {
+  flex-direction: column;
+  width: 100%;
+}
