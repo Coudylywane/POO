@@ -5,13 +5,13 @@
   <ul id="menu-accordeon">
     <li><img src="./../img/Tent.png" alt="logo"  class="icones"><a href="#">Pavillon</a>
         <ul>
-          <li><a href="#">Liste des Pavillons</a></li>
-          <li><a href="#">Ajout Pavillon</a></li>
+          <li><a href="<?=WEBROOT."pavillon/listePavillon"?>">Liste des Pavillons</a></li>
+          <li><a href="<?=WEBROOT."pavillon/ajoutPavillon"?>">Ajout Pavillon</a></li>
         </ul>
     </li>
     <li> <img src="./../img/Empty Bed.png" alt="logo"  class="icones"><a href="#">Chambre</a>
       <ul>
-         <li><a href="#">Liste des Chambres</a></li>
+         <li><a href="<?=WEBROOT."chambre/listeChambre"?>">Liste des Chambres</a></li>
          <li><a href="#">Ajout Chambre</a></li>
       </ul>
    </li>

@@ -22,7 +22,6 @@ class EtudiantController extends AbstractController{
     {
         $this->repo= new EtudiantRepository;
         $this->request = new Request;
-        $this->validator = new Validator;
     }
 
 public function liste(){
@@ -35,17 +34,20 @@ public function ajoutEtudiants(){
 } 
 
 
-public function addEtudiant()
-{
+public function addEtudiant(){
     // tester si action == post
     // extract validation champs
     // instancier personnemanager 
     // instancier objet de type  etudiant
     // 
     if ($this->request->isPost()) {
-        extract($this->request->request());
-
-        //validations ---------------
+            extract($this->request->request());
+            $this->validator->isVide($login,"login");
+            $this->validator->isVide($nom,"nom");
+            $this->validator->isVide($prenom,"prenom");
+            $this->validator->isVide($date,"date");
+            $this->validator->isVide($adresse,"adresse");
+            $this->validator->isVide($telephone,"telephone");
 
         if ($this->validator->valid()) {
             $insert = new PersonneManager;
@@ -60,13 +62,31 @@ public function addEtudiant()
             $test = EtudiantNBoursier::fromArray($etuNboursier);
             $main = $insert->insert($test);
 
+        }else {
+            Session::setSession("errors",$this->validator->getErreurs());
+            $this->redirect("etudiant/ajoutEtudiants");
+        }
+            $this->redirect("etudiant/liste");
+        }
     }
-    $this->redirect("etudiant/liste");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     
-    
-    }
-}
 }
 
 

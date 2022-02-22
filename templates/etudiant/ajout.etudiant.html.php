@@ -19,34 +19,49 @@ if(Session::keyExist("errors")){
                  <div class="form-controle">
                     <label for="username">Nom</label>
                     <input type="text" id="username" name="nom" placeholder="Enter votre nom">
-                    <small class="form-text text-danger form">
+                    <small class="erroor">
                     <?php echo isset($arrErrors['nom']) ? $arrErrors['nom']: '';?> 
                     </small>
                     </div>
                     <div class="form-controle">
                          <label for="">Prenom</label>
                          <input type="text" id="email" name="prenom" placeholder="Enter votre prenom">
+                         <small class="erroor">
+                              <?php echo isset($arrErrors['prenom']) ? $arrErrors['prenom']: '';?> 
+                         </small>
                     </div>
                </div>
                
                <div class="row">
                     <div class="form-controle">
-                         <label for="">login</label>
+                         <label for="">Login</label>
                          <input type="text" name="login" placeholder="Enter votre login">
+                         <small class="erroor">
+                              <?php echo isset($arrErrors['login']) ? $arrErrors['login']: '';?> 
+                         </small>
                     </div>
                     <div class="form-controle">
-                         <label for="password2">date de naissane</label>
+                         <label for="password2">Date de naissane</label>
                          <input type="date" id="password2" name="date" placeholder="Entrer votre date de naissance">
+                         <small class="erroor">
+                              <?php echo isset($arrErrors['date']) ? $arrErrors['date']: '';?> 
+                         </small>
                     </div>
                </div>
                <div class="row">
                     <div class="form-controle">
                          <label for="password2">Telephone</label>
                          <input type="text" id="password2" name="telephone" placeholder="Entrer votre telephone">
+                         <small class="erroor">
+                              <?php echo isset($arrErrors['telephone']) ? $arrErrors['telephone']: '';?> 
+                         </small>
                     </div>
                     <div class="form-controle">
                          <label for="password2">Adresse</label>
                          <input type="text" id="password2" name="adresse" placeholder="Entrer votre adresse">
+                         <small class="erroor">
+                              <?php echo isset($arrErrors['adresse']) ? $arrErrors['adresse']: '';?> 
+                         </small>
                     </div>
                </div>
             <button type="submit" class="btn">Ajouter</button>
