@@ -57,12 +57,23 @@ if(Session::keyExist("errors")){
                          </small>
                     </div>
                     <div class="form-controle">
+                         <label for="password2">Type Etudiant</label>
+                         <select name="" id=""  class="selecte-style">
+                              <option value="">Non Boursier</option>
+                              <option value="">Boursier</option>
+                         </select>
+                         <small class="erroor">
+                              <?php echo isset($arrErrors['telephone']) ? $arrErrors['telephone']: '';?> 
+                         </small>
+                    </div>
+
+                    <!-- <div class="form-controle">
                          <label for="password2">Adresse</label>
                          <input type="text" id="password2" name="adresse" placeholder="Entrer votre adresse">
                          <small class="erroor">
                               <?php echo isset($arrErrors['adresse']) ? $arrErrors['adresse']: '';?> 
                          </small>
-                    </div>
+                    </div> -->
                </div>
             <button type="submit" class="btn">Ajouter</button>
         </form>

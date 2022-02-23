@@ -19,9 +19,9 @@ if(Session::keyExist("errors")){
                <div class="row">
                  <div class="form-controle">
                     <label for="username">Numero Chambre</label>
-                    <input type="text" id="username" name="chambre" placeholder="Enter le numero de la chambre">
+                    <input type="text" id="username" name="num_chambre" placeholder="Enter le numero de la chambre">
                     <small class="erroor">
-                    <?php echo isset($arrErrors['chambre']) ? $arrErrors['chambre']: '';?> 
+                    <?php echo isset($arrErrors['num_chambre']) ? $arrErrors['num_chambre']: '';?> 
                     </small>
                     </div>
                     <div class="form-controle">
@@ -34,19 +34,31 @@ if(Session::keyExist("errors")){
                </div>
                
                <div class="row">
-                    <div class="form-controle">
+                        <div class="form-controle">
+                                <div>
+                                <label for="">Type Chambre</label>
+                                    <select name="type_chambre" id="" class="selecte-style">
+                                        <option value="">Choisir</option>
+                                        <?php foreach ($type_chambres as $type_chambre):?>
+                                        <option value="<?=$type_chambre->id_type_chambre?>"><?=$type_chambre->nom_type_chambre?></option>
+                                        <?php endforeach ?>
+                                    </select>
+                                </div>
+                        </div>
+                    <!-- <div class="form-controle">
                          <div>
                          <?php foreach ($type_chambres as $type_chambre):?>
                             <label for=""><?=$type_chambre->nom_type_chambre?></label>
-                            <input type="radio" name="type" style="margin-top: -15px;" value="<?=$type_chambre->id_type_chambre?>">
+                            <input type="radio" name="type_chambre" style="margin-top: -15px;" value="<?=$type_chambre->id_type_chambre?>">
                             <?php endforeach ?>
                          </div>
-                    </div>
+                    </div> -->
+
                     <div class="form-controle">
                          <div>
                          <label for="">Pavillon</label>
-                            <select name="" id="">
-                                <option value="">choisir</option>
+                            <select name="pavillon" id="" class="selecte-style">
+                                <option value="">Choisir</option>
                                 <?php foreach ($pavillons as $pavillon):?>
                                 <option value="<?=$pavillon->id_pavillon?>"><?=$pavillon->nom_pavillon?></option>
                                 <?php endforeach ?>

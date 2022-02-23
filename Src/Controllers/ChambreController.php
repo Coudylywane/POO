@@ -39,33 +39,36 @@ class ChambreController extends AbstractController{
     public function ajoutChambre(){
         $type_chambres=$this->type->findAll();
         $pavillons=$this->pavillon->findAll();
-        $this->render("chambre/ajout.chambre.html.php",["type_chambres"=>$type_chambres,"pavillons"=>$pavillons]);
+        $this->render("chambre/ajout.chambre.html.php",["type_chambres"=>$type_chambres,"pavillons"=>$pavillons ]);
     }
     
 
     public function addChambre(){
-        if ($this->request->isPost()) {
-                extract($this->request->request());
-                $this->validator->isVide($chambre,"chambre");
-                $this->validator->isVide($numero,"numero");
-            if ($this->validator->valid()) {
-                $insert = new ChambreManager;
-                $type = new Type_Chambre;
-                $pav = new Pavillon;
-                $pav->setIdPavillon($pavillon);
-                $type->setIdTypeChambre($type_chambre);
-            $chambre->setNumChambre($chambre)
-                    ->
-            $test = Chambre::fromArray($chambre);
-            $main = $insert->insert($test);
-            var_dump($main);
-            die;
-
-            }else {
-                Session::setSession("errors",$this->validator->getErreurs());
-                $this->redirect("chambre/ajoutChambre");
-            }
-                $this->redirect("chambre/listeChambre");
+            if ($this->request->isPost()) {
+                    extract($this->request->request());
+                     $this->validator->isVide($num_chambre,"num_chambre");
+                     $this->validator->isVide($numero,"numero");
+                     $this->validator->isVide($type_chambre,"type_chambre");
+                if ($this->validator->valid()) {
+                    $insert = new ChambreManager;
+                    $chambre= new Chambre;
+                    $chambre->setNumChambre($num_chambre)
+                            ->setNumEtage($numero)
+                            ->setIdTypeChambre($type_chambre);
+                            if ($pavillon!=null) {
+                                $chambre->setIdPavillons($pavillon);
+                            }else {
+                                $chambre->setIdPavillons(null);
+                            }
+                    
+                    $test = $chambre->fromArray($chambre);
+                    
+                    $insert->insert($test);
+                    $this->redirect("chambre/listeChambre");
+                }else {
+                    Session::setSession("errors",$this->validator->getErreurs());
+                    $this->redirect("chambre/ajoutChambre");
+                }
             }
         }
 

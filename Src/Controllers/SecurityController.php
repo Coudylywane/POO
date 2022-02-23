@@ -49,7 +49,7 @@ class SecurityController extends AbstractController{
 
 
 
-    public function logout(){
+    public function deconnect(){
         Session::destroySession();
         $this->redirect("security");
     }

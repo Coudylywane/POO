@@ -13,8 +13,18 @@ class ChambreRepository extends AbstractRepository{
     }
 
     function findAll():array{
-        $sql="select * from $this->tableName ";
+        $sql="select * from $this->tableName c , type_chambre t , pavillon p
+        where 
+        c.id_type_chambre= t.id_type_chambre 
+        and
+        c.id_pavillon=p.id_pavillon
+         ";
          return $this->dataBase->executeSelect($sql);
    }
+
+   function findByPavillon():array{
+    $sql="select * from $this->tableName  where id_pavillon is null";
+    return $this->dataBase->executeSelect($sql);
+}
       
 }

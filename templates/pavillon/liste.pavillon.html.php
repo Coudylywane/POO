@@ -4,7 +4,7 @@
     Liste des Pavillons
   </h2>
   </div>
-  <div class="filtres">
+  <!-- <div class="filtres">
   <label class="labele-filtre" for="">Chambre</label>
   <div class="select-style">
       <select>
@@ -20,7 +20,7 @@
       </select>
     </div>
     <button type="button" class="ok">OK</button>
-  </div>
+  </div> -->
 <div class="tables">
   <table>
   <tr>
@@ -31,9 +31,9 @@
     <?php foreach ($pavillons as $pavillon):?>
  
  <tr>
-   <td><?=$pavillon->nom_pavillon?></td>
-   <td><?=$pavillon->num_pavillon?></td>
-   <td><?=$pavillon->nbr_etage?></td>
+   <td><?=ucfirst($pavillon->nom_pavillon)?></td>
+   <td><?=ucfirst($pavillon->num_pavillon)?></td>
+   <td><?=ucfirst($pavillon->nbr_etage)?></td>
  </tr>
 <?php endforeach ?>   
   </table>

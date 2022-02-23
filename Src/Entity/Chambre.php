@@ -4,10 +4,10 @@ namespace App\Entity;
 
 class Chambre {
     private int $id_chambre;
-    private int $num_chambre;
+    private string $num_chambre;
     private int $num_etage;
-    private Pavillon $id_pavillons;
-    private Type_Chambre $id_type_chambre;
+    private int|null $id_pavillons;
+    private int $id_type_chambre;
     
 
     /**
@@ -34,53 +34,9 @@ class Chambre {
         return $this;
     }
 
-    /**
-     * Get the value of num_chambre
-     *
-     * @return  int
-     */
-    public function getNumChambre()
-    {
-        return $this->num_chambre;
-    }
 
-    /**
-     * Set the value of num_chambre
-     *
-     * @param  int  $num_chambre
-     *
-     * @return  self
-     */
-    public function setNumChambre(int $num_chambre)
-    {
-        $this->num_chambre = $num_chambre;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of id_pavillons
-     *
-     * @return  Pavillon
-     */
-    public function getIdPavillons()
-    {
-        return $this->id_pavillons;
-    }
-
-    /**
-     * Set the value of id_pavillons
-     *
-     * @param  Pavillon  $id_pavillons
-     *
-     * @return  self
-     */
-    public function setIdPavillons(Pavillon $id_pavillons)
-    {
-        $this->id_pavillons = $id_pavillons;
-
-        return $this;
-    }
+   
+   
 
     /**
      * Get the value of num_etage
@@ -108,10 +64,27 @@ class Chambre {
 
     
 
+    public static function fromArray(object $chambre): array
+    {
+        $array = array_values((array)$chambre);
+        $array[]=$array[1];
+        $array[]=$array[0];
+        $array[]=$array[3];
+        $array[]=$array[2];
+        unset($array[0]);
+        unset($array[1]);
+        unset($array[2]);
+        unset($array[3]);
+        return array_values($array);
+    }
+
+
+   
+
     /**
      * Get the value of id_type_chambre
      *
-     * @return  Type_Chambre
+     * @return  int
      */
     public function getIdTypeChambre()
     {
@@ -121,21 +94,73 @@ class Chambre {
     /**
      * Set the value of id_type_chambre
      *
-     * @param  Type_Chambre  $id_type_chambre
+     * @param  int  $id_type_chambre
      *
      * @return  self
      */
-    public function setIdTypeChambre(Type_Chambre $id_type_chambre)
+    public function setIdTypeChambre(int $id_type_chambre)
     {
         $this->id_type_chambre = $id_type_chambre;
 
         return $this;
     }
 
-    public static function fromArray(object $chambre): array
+    /**
+     * Get the value of num_chambre
+     *
+     * @return  string
+     */
+    public function getNumChambre()
     {
-        $array = array_values((array)$chambre);
-        return array_values($array);
+        return $this->num_chambre;
     }
 
+    /**
+     * Set the value of num_chambre
+     *
+     * @param  string  $num_chambre
+     *
+     * @return  self
+     */
+    public function setNumChambre(string $num_chambre)
+    {
+        $this->num_chambre = $num_chambre;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of id_pavillons
+     *
+     * @return  int|null
+     */
+    public function getIdPavillons()
+    {
+        return $this->id_pavillons;
+    }
+
+    /**
+     * Set the value of id_pavillons
+     *
+     * @param  int|null  $id_pavillons
+     *
+     * @return  self
+     */
+    public function setIdPavillons($id_pavillons)
+    {
+        $this->id_pavillons = $id_pavillons;
+
+        return $this;
+    }
+
+
+    public static function fromArray1(object $chambre): array
+    {
+        $array = array_values((array)$chambre);
+        $array[]=$array[1];
+        $array[]=$array[0];
+        unset($array[1]);
+        unset($array[0]);
+        return array_values($array);
+    }
 }

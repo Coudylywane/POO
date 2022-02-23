@@ -42,9 +42,6 @@ if(Session::keyExist("errors")){
               <button type="submit" class="ajouter">Se connecter</button>
               <div class="trait"></div>
               <div>
-                <a href=""class="compte">Vous n'avez pas de compte? Creer en un !</a>
-              </div>
-              <div>
               </div>
             </form>
             </div>

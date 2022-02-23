@@ -18,15 +18,31 @@
    <li><img src="./../img/Male User.png" alt="logo" class="icones"><a href="#">Etudiant</a>
       <ul>
           <li><a href="<?=WEBROOT."etudiant/liste"?>">Liste des Etudiant</a></li>
-          <li><a href="<?=WEBROOT."etudiant/ajoutEtudiants"?>">Ajout Etudiant Non Boursier</a></li>
-          <li><a href="#">Ajout Etudiant Boursier Non loge</a></li>
-          <li><a href="#">Ajout Etudiant Boursier loge</a></li>
+          <li><a href="<?=WEBROOT."etudiant/ajoutEtudiants"?>">Ajout Etudiant</a></li>
       </ul>
    </li>
+   <li class="deconnect">
+   <img src="./../img/Vector.png" alt="logo" class="dec"><a href="<?=WEBROOT."security/deconnect"?>">Deconnexion</a>
+  </li>
 </ul>
+
+ 
 
 </nav>
 
+
+<style>
+  .deconnect{
+    display: flex;
+  }
+
+  .dec{
+    width: 8%;
+    height: 8%;
+    margin-top: 6%;
+    margin-left: 5%;
+  }
+</style>
 
 
 

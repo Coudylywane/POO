@@ -1,22 +1,31 @@
 <?php
 
 namespace App\Controllers;
-use  App\Core\Session;
 use App\Core\Request;
-use App\Core\AbstractController;
+use  App\Core\Session;
 use App\Entity\Pavillon;
+use App\Core\AbstractController;
+use App\Entity\Chambre;
+use App\Manager\ChambreManager;
 use App\Manager\PavillonManager;
+use App\Repository\ChambreRepository;
 use App\Repository\PavillonRepository;
 
 class PavillonController extends AbstractController{
     private Request $request;
     private PavillonRepository $pavillon ;
+    private ChambreManager $chambreMan;
+    private Chambre $chambreEn;
+
 
 
     public function __construct()
     {
         parent::__construct();
         $this->repo= new PavillonRepository;
+        $this->chambre= new ChambreRepository;
+        $this->chambreMan= new ChambreManager;
+        $this->chambreEn= new Chambre;
         $this->request = new Request;
     }
 
@@ -26,7 +35,8 @@ class PavillonController extends AbstractController{
     }
 
     public function ajoutPavillon(){
-        $this->render("pavillon/ajout.pavillon.html.php");
+        $chambres=$this->chambre->findByPavillon();
+        $this->render("pavillon/ajout.pavillon.html.php",["chambres"=>$chambres]);
     }
 
     public function addPavillon(){
@@ -41,13 +51,23 @@ class PavillonController extends AbstractController{
                 $pavillon->setNomPavillon($nom)
                         ->setNbrEtage($nombre)
                         ->setNumPavillon($numero);
+               
             $test = Pavillon::fromArray($pavillon);
             $main = $insert->insert($test);
+
+            foreach ($disponible as  $value) {
+                $this->chambre->findById($value);
+                $this->chambreEn->setIdPavillons($main)
+                                ->setIdChambre($value);
+                $insert= Chambre::fromArray1($this->chambreEn);
+                $this->chambreMan->update($insert);
+                
+            }
+            $this->redirect("pavillon/listePavillon");
             }else {
                 Session::setSession("errors",$this->validator->getErreurs());
                 $this->redirect("pavillon/ajoutPavillon");
             }
-                $this->redirect("pavillon/listePavillon");
             }
         }
 

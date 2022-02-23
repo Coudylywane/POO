@@ -40,6 +40,16 @@ if(Session::keyExist("errors")){
                               <?php echo isset($arrErrors['nombre']) ? $arrErrors['nombre']: '';?> 
                          </small>
                     </div>
+                    <div class="form-controle">
+                         <label for="">Chambre disponible</label>
+                         <?php foreach ($chambres as $chambre):?>
+                        <label for=""><?=$chambre->num_chambre?></label>
+                         <input type="checkbox" name="disponible[]" placeholder="Enter le nombre d'etage" value="<?=$chambre->id_chambre?>">
+                         <?php endforeach ?>
+                         <small class="erroor">
+                              <?php echo isset($arrErrors['nombre']) ? $arrErrors['nombre']: '';?> 
+                         </small>
+                    </div>
                </div>
             <button type="submit" class="btn">Ajouter</button>
         </form>
