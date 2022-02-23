@@ -131,4 +131,11 @@ class Chambre {
 
         return $this;
     }
+
+    public static function fromArray(object $chambre): array
+    {
+        $array = array_values((array)$chambre);
+        return array_values($array);
+    }
+
 }

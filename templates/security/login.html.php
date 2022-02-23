@@ -28,18 +28,18 @@ if(Session::keyExist("errors")){
                   <h6 id="titre">Connectez-vous pour acceder a vos fonctionnalites</h6>
               </div>
               <div>
-                <input type="text" class="input" placeholder="Adresse Email" name="login">
+                <input type="text" class="inpute" placeholder="Adresse Email" name="login">
                 <small class="form-text text-danger form">
                   <?php echo isset($arrErrors['password']) ? $arrErrors['password']: '';?> 
                 </small>
               </div> 
               <div>
-                <input type="password" class="input" placeholder="Mot de passe" name="password">
+                <input type="password" class="inpute" placeholder="Mot de passe" name="password">
                 <small class="form-text text-danger form">
                   <?php echo isset($arrErrors['password']) ? $arrErrors['password']: '';?> 
                 </small>
               </div>
-              <button type="submit" class="btn">Se connecter</button>
+              <button type="submit" class="ajouter">Se connecter</button>
               <div class="trait"></div>
               <div>
                 <a href=""class="compte">Vous n'avez pas de compte? Creer en un !</a>

@@ -16,7 +16,7 @@ class PavillonController extends AbstractController{
     public function __construct()
     {
         parent::__construct();
-        $this->repo= new PavillonManager;
+        $this->repo= new PavillonRepository;
         $this->request = new Request;
     }
 
@@ -30,11 +30,6 @@ class PavillonController extends AbstractController{
     }
 
     public function addPavillon(){
-        // tester si action == post
-        // extract validation champs
-        // instancier personnemanager 
-        // instancier objet de type  etudiant
-        // 
         if ($this->request->isPost()) {
                 extract($this->request->request());
                 $this->validator->isVide($nom,"nom");
@@ -42,14 +37,12 @@ class PavillonController extends AbstractController{
                 $this->validator->isVide($numero,"numero");
             if ($this->validator->valid()) {
                 $insert = new PavillonManager;
-            $pavillon = new Pavillon;
-            $pavillon->setNomPavillon($nom)
+                $pavillon = new Pavillon;
+                $pavillon->setNomPavillon($nom)
                         ->setNbrEtage($nombre)
                         ->setNumPavillon($numero);
             $test = Pavillon::fromArray($pavillon);
             $main = $insert->insert($test);
-                var_dump($main);
-                die;
             }else {
                 Session::setSession("errors",$this->validator->getErreurs());
                 $this->redirect("pavillon/ajoutPavillon");

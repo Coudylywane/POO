@@ -12,7 +12,7 @@
     <li> <img src="./../img/Empty Bed.png" alt="logo"  class="icones"><a href="#">Chambre</a>
       <ul>
          <li><a href="<?=WEBROOT."chambre/listeChambre"?>">Liste des Chambres</a></li>
-         <li><a href="#">Ajout Chambre</a></li>
+         <li><a href="<?=WEBROOT."chambre/ajoutChambre"?>">Ajout Chambre</a></li>
       </ul>
    </li>
    <li><img src="./../img/Male User.png" alt="logo" class="icones"><a href="#">Etudiant</a>

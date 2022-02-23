@@ -10,7 +10,7 @@ if(Session::keyExist("errors")){
 ?>
 
 <div class="container2">
-<form method="post" action="<?=WEBROOT."pavillon/addPavillon"?>" enctype="multipart/form-data">
+<form method="post" action="<?=WEBROOT."pavillon/addPavillon"?>" enctype="multipart/form-data" class="forme">
 <!-- <input type="hidden" name="controllers" value="etudiant"/>
 <input type="hidden" name="action" value="inscription"/>
 <input type="hidden" name="id" value="<?=isset($user['id']) ? $user['id']:'';?>"> -->

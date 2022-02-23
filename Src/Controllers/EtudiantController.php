@@ -20,6 +20,7 @@ class EtudiantController extends AbstractController{
 
     function __construct()
     {
+        parent::__construct();
         $this->repo= new EtudiantRepository;
         $this->request = new Request;
     }

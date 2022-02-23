@@ -79,6 +79,8 @@ class DataBase{
       return  $stm->rowCount();
    }
 
+
+   
 private function fermerConexion(){
       $this->pdo=null;
 }
