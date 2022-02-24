@@ -3,26 +3,29 @@
 namespace App\Controllers;
 
 
-use App\Repository\PersonneRepository;
-use App\Core\Request;
-use App\Core\AbstractController;
 use App\Core\Role;
+use App\Core\Request;
 use App\Core\Session;
 use App\Core\Validator;
-use App\Entity\EtudiantNBoursier;
+use App\Core\AbstractController;
 use App\Manager\PersonneManager;
+use App\Entity\Etudiant;
+use App\Repository\BourseRepository;
 use App\Repository\EtudiantRepository;
+use App\Repository\PersonneRepository;
 
 
 class EtudiantController extends AbstractController{
     private Request $request;
     private EtudiantRepository $repo ;
+    private BourseRepository $bourse ;
 
     function __construct()
     {
         parent::__construct();
         $this->repo= new EtudiantRepository;
         $this->request = new Request;
+        $this->bourse = new BourseRepository;
     }
 
 public function liste(){
@@ -31,7 +34,8 @@ public function liste(){
 
 }
 public function ajoutEtudiants(){
-    $this->render("etudiant/ajout.etudiant.html.php");
+    $bourses=$this->bourse->findAll();
+    $this->render("etudiant/ajout.etudiant.html.php",["bourses"=>$bourses]);
 } 
 
 
@@ -47,27 +51,36 @@ public function addEtudiant(){
             $this->validator->isVide($nom,"nom");
             $this->validator->isVide($prenom,"prenom");
             $this->validator->isVide($date,"date");
-            $this->validator->isVide($adresse,"adresse");
             $this->validator->isVide($telephone,"telephone");
 
         if ($this->validator->valid()) {
             $insert = new PersonneManager;
-            $etuNboursier = new EtudiantNBoursier;
-            $etuNboursier->setNom($nom)
-                        ->setPrenom($prenom)
-                        ->setLogin($login);
-            $etuNboursier->setDateNaiss($date)
-                        ->setTelephone($telephone)
-                        ->setMatricule(uniqid());
-            $etuNboursier->setAdresse($adresse);
-            $test = EtudiantNBoursier::fromArray($etuNboursier);
-            $main = $insert->insert($test);
+            $etu = new Etudiant;
+            $etu->setNom($nom)
+                ->setPrenom($prenom)
+                ->setLogin($login);
+            $etu->setDateNaiss($date)
+                ->setTelephone($telephone)
+                ->setMatricule(uniqid());
+            $post = $this->request->request();
+            if ($post['bourse']== 'boursier') {
+                $etu->setIdBourse($post["type_bourse"]);
+                $etu->setAdresse(null);
+            }elseif ($post['bourse']== 'non_boursier') {
+                $etu->setAdresse($post["adresse"]);
+                $etu->setIdBourse(null);
+            }
+            $test = Etudiant::fromArray($etu);
+          /*   var_dump($test);
+            die; */
+            $main= $insert->insert($test);
+            $this->redirect("etudiant/liste");
 
         }else {
+            die('ok');
             Session::setSession("errors",$this->validator->getErreurs());
             $this->redirect("etudiant/ajoutEtudiants");
         }
-            $this->redirect("etudiant/liste");
         }
     }
 

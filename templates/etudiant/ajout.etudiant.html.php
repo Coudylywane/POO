@@ -48,33 +48,42 @@ if(Session::keyExist("errors")){
                          </small>
                     </div>
                </div>
-               <div class="row">
-                    <div class="form-controle">
+                    <div class="form-controles">
                          <label for="password2">Telephone</label>
                          <input type="text" id="password2" name="telephone" placeholder="Entrer votre telephone">
                          <small class="erroor">
                               <?php echo isset($arrErrors['telephone']) ? $arrErrors['telephone']: '';?> 
                          </small>
                     </div>
-                    <div class="form-controle">
+                    <div class="form-controles">
                          <label for="password2">Type Etudiant</label>
-                         <select name="" id=""  class="selecte-style">
-                              <option value="">Non Boursier</option>
-                              <option value="">Boursier</option>
+                         <select name="bourse" id="bourse"  class="selecte-style" onclick="addAdresse()">
+                              <option value="">Saisir le type d'Etudiant</option>
+                              <option value="non_boursier"> Non Boursier</option>
+                              <option value="boursier"> Boursier</option>
                          </select>
-                         <small class="erroor">
+                         <!-- <small class="erroor">
                               <?php echo isset($arrErrors['telephone']) ? $arrErrors['telephone']: '';?> 
-                         </small>
+                         </small> -->
                     </div>
-
-                    <!-- <div class="form-controle">
+                    <div class="form-controles" id="adresse" style="display: none;">
                          <label for="password2">Adresse</label>
-                         <input type="text" id="password2" name="adresse" placeholder="Entrer votre adresse">
+                         <input type="text"  name="adresse" placeholder="Entrer votre adresse">
                          <small class="erroor">
                               <?php echo isset($arrErrors['adresse']) ? $arrErrors['adresse']: '';?> 
                          </small>
-                    </div> -->
-               </div>
+                    </div>
+                    <div class="form-controles" id="boursier" style="display: none;">
+                         <label for="">Type de Bourse</label>
+                         <select name="type_bourse"class="selecte-style" >
+                              <?php foreach ($bourses as $bourse):?>
+                                   <option value="<?=$bourse->id_bourse?>"><?=$bourse->type_bourse?></option>
+                              <?php endforeach ?>
+                         </select>
+                    </div>
+                    
             <button type="submit" class="btn">Ajouter</button>
         </form>
     </div>
+
+   

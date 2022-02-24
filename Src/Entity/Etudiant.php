@@ -6,9 +6,12 @@ use Doctrine\Common\Collections\ArrayCollection;
 
 class Etudiant extends Personne implements EntityInterface{
     
-    protected string $matricule;
-    protected int $telephone;
-    protected string $dateNaiss;
+    private string $matricule;
+    private int $telephone;
+    private string $dateNaiss;
+    private string|null $adresse;
+    private int|null $id_bourse;
+
    //Propriete Navigationnelle OneToMany
    //Collection
 
@@ -20,16 +23,33 @@ class Etudiant extends Personne implements EntityInterface{
        $this->role="ROLE_ETUDIANT";
    }
 
-public static function  fromArray(object $personne):array{
-    $arr=  array_values((array)$personne);
-    $arr[]=$arr[0];
-    $arr[]=$arr[1];
-    $arr[]="";
-     unset($arr[0]);
-     unset($arr[1]);
-     unset($arr[2]);
-     return  array_values($arr);
-  }
+
+  public static function fromArray(object $personne): array
+    {
+        $array = array_values((array)$personne);
+        $array[]= $array[0];//non
+        $array[]= $array[1];//prenom
+        $array[]= $array[2];//email
+        $array[]= $array[3];//role
+        $array[]= $array[4];//mat
+        $array[]= $array[6];//date
+        $array[]= $array[8];
+        $array[]= $array[7];
+        $array[]= null; 
+        $array[]= $array[5];
+        $array[]= null; 
+     
+        unset($array[0]);
+        unset($array[1]);
+        unset($array[2]);
+        unset($array[3]);
+        unset($array[4]);
+        unset($array[5]);
+        unset($array[6]);
+        unset($array[7]);
+        unset($array[8]);
+        return array_values($array);
+    }
 
 
     /**
@@ -96,6 +116,56 @@ public static function  fromArray(object $personne):array{
     public function setDateNaiss(string $dateNaiss)
     {
         $this->dateNaiss = $dateNaiss;
+
+        return $this;
+    }
+
+   
+
+    /**
+     * Get the value of id_bourse
+     *
+     * @return  int|null
+     */
+    public function getIdBourse()
+    {
+        return $this->id_bourse;
+    }
+
+    /**
+     * Set the value of id_bourse
+     *
+     * @param  int|null  $id_bourse
+     *
+     * @return  self
+     */
+    public function setIdBourse($id_bourse)
+    {
+        $this->id_bourse = $id_bourse;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of adresse
+     *
+     * @return  string|null
+     */
+    public function getAdresse()
+    {
+        return $this->adresse;
+    }
+
+    /**
+     * Set the value of adresse
+     *
+     * @param  string|null  $adresse
+     *
+     * @return  self
+     */
+    public function setAdresse($adresse)
+    {
+        $this->adresse = $adresse;
 
         return $this;
     }

@@ -96,7 +96,7 @@ body{
 
 .forme{
   padding: 200px;
-  margin-top: -100px;
+  margin-top: -169px;
 
 }
 
@@ -229,7 +229,6 @@ nav{
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     width: 70%;
     margin-top: 5%;
-    height: 600PX;
 }
 
 h2{
@@ -422,14 +421,14 @@ tr:nth-child(even) {background-color: #f2f2f2;}
   ///////////////////////////////ajout chambre///////////////@at-root
 
   .selecte-style {
-    width: 308px;
+    width: 620px;
     border-radius: 3px;
     overflow: hidden;
     background-color: #fff;
     background: #fff;
     position: relative;
     height: 40px;
-    margin-left: 17px;
+    margin-left: 6px;
     color: #7c7979;
     border: 2px solid #f0f0f0;
     padding: 9px;
@@ -465,5 +464,56 @@ tr:nth-child(even) {background-color: #f2f2f2;}
     outline: 0;
   }
   
+  ///////////////////////////////////////telephone et boure///////////@at-root
+  .form-controles input{
+    border: 2px solid #f0f0f0;
+    border-radius: 4px;
+    display: block;
+    width: 620px;
+    padding: 13px;
+    font-size: 14px;
+    margin-left: 6px;
+  }
+
+  .form-controles{
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-controles label{
+    color: #777;
+    display: block;
+    margin-bottom: 5px;
+    margin-left: 21px;
+
+}
+
+
+
+.form-controles input:focus{
+    outline: 0;
+    border-color: #777;
+}
+
+.form-controles.success input{
+    border-color: var(--success-color);
+}
+
+.form-controles.erroor input{
+    border-color: var(--error-color);
+}
+
+.form-controles small{
+    color: var(--error-color);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.form-controles.erroor small{
+    visibility: visible;
+}
+
   
       

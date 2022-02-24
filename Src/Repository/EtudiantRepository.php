@@ -17,17 +17,17 @@ class EtudiantRepository extends PersonneRepository{
 
 
       public function findEtudiantByrole():object|bool|array{
-        $sql="select * from $this->tableName e , chambre c , bourse b , type_chambre t
-         where role like ?
-         and
+        $sql="select * from $this->tableName where role like ?";
+           return $this->findBy($sql,[$this->role ],false);
+
+      }
+
+      /* e , chambre c , bourse b , type_chambre t
+       and
          e.id_chambre=c.id_chambre
          and
          e.id_bourse=b.id_bourse
          and
-         c.id_type_chambre=t.id_type_chambre
-         ";
-           return $this->findBy($sql,[$this->role ],false);
-
-      }
+         c.id_type_chambre=t.id_type_chambre  */
       
 }
