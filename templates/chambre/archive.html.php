@@ -33,7 +33,10 @@
    <td><?=$chambre->nom_type_chambre?></td>
    <td><?=ucfirst($chambre->nom_pavillon)?></td>
    <td><?=ucfirst($chambre->etat)?></td>
-  
+   <td>
+        <a href="<?= WEBROOT.'chambre/archiverChambre/'.$chambre->id_chambre?>" class="archiver">DeArchiver</a>
+   </td>
+
  </tr>
 <?php endforeach ?>   
   </table>

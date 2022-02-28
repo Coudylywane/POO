@@ -32,14 +32,14 @@ class ChambreController extends AbstractController{
 
 
     public function listeChambre(){
-        $chambres=$this->repo->findAll();
+        $chambres=$this->repo->findChambreByEtat('non_archivee');
         $this->render("chambre/liste.chambre.html.php",["chambres"=>$chambres]);
     
     }
 
 
     public function voirArchiver(){
-        $chambres=$this->repo->findAll();
+        $chambres=$this->repo->findChambreByEtat('archivee');
         $this->render("chambre/archive.html.php",["chambres"=>$chambres]);
     
     }
