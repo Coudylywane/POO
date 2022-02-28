@@ -52,7 +52,6 @@ public function addEtudiant(){
             $this->validator->isVide($prenom,"prenom");
             $this->validator->isVide($date,"date");
             $this->validator->isVide($telephone,"telephone");
-
         if ($this->validator->valid()) {
             $insert = new PersonneManager;
             $etu = new Etudiant;
@@ -70,14 +69,15 @@ public function addEtudiant(){
                 $etu->setAdresse($post["adresse"]);
                 $etu->setIdBourse(null);
             }
+            if (isset($id_personne)) {
+                die('ok');
+               $update->update($test);
+            }
             $test = Etudiant::fromArray($etu);
-          /*   var_dump($test);
-            die; */
             $main= $insert->insert($test);
             $this->redirect("etudiant/liste");
 
         }else {
-            die('ok');
             Session::setSession("errors",$this->validator->getErreurs());
             $this->redirect("etudiant/ajoutEtudiants");
         }

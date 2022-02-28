@@ -10,6 +10,8 @@ class ChambreRepository extends AbstractRepository{
         parent::__construct();
         $this->tableName="chambre";
         $this->primaryKey="id_chambre";
+
+        $this->etat="non_archivee";
     }
 
     function findAll():array{
@@ -22,9 +24,31 @@ class ChambreRepository extends AbstractRepository{
          return $this->dataBase->executeSelect($sql);
    }
 
-   function findByPavillon():array{
+   function findById(int $id):array{
+    $sql="select * from $this->tableName c , type_chambre t  , pavillon p
+    where 
+    c.id_type_chambre = t.id_type_chambre
+    and
+    c.id_pavillon = p.id_pavillon
+    and
+    $this->primaryKey=?";
+     return $this->dataBase->executeSelect($sql,[$id]);
+  }
+
+  function findChambreByEtat():array{
+    $sql="select * from $this->tableName c , type_chambre t , pavillon p
+    where 
+    c.id_type_chambre= t.id_type_chambre 
+    and
+    c.id_pavillon=p.id_pavillon and etat like ?";
+     return $this->dataBase->executeSelect($sql,[$this->etat]);
+  }
+
+  function findByPavillon():array{
     $sql="select * from $this->tableName  where id_pavillon is null";
     return $this->dataBase->executeSelect($sql);
 }
+ 
+
       
 }

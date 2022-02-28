@@ -114,6 +114,17 @@ class Pavillon {
         return array_values($array);
     }
 
+    public static function fromArrayUpdate(object $pavillon): array
+    {
+        $array = array_values((array)$pavillon);
+        $array[]=$array[0];
+        unset($array[0]);
+        return array_values($array);
+    }
+
+    
+
+
 
 
 

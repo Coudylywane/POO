@@ -11,9 +11,9 @@ if(Session::keyExist("errors")){
 
 <div class="container2">
 <form method="post" action="<?=WEBROOT."etudiant/addEtudiant"?>" enctype="multipart/form-data" class="forme">
-<!-- <input type="hidden" name="controllers" value="etudiant"/>
-<input type="hidden" name="action" value="inscription"/>
-<input type="hidden" name="id" value="<?=isset($user['id']) ? $user['id']:'';?>"> -->
+<input type="hidden" name="controllers" value="etudiant"/>
+<input type="hidden" name="action" value="addEtudiant"/>
+<!-- <input type="hidden" name="id" value="<?=isset($user['id']) ? $user['id']:'';?>"> -->
             <h2>AJOUT ETUDIANT</h2>
                <div class="row">
                  <div class="form-controle">

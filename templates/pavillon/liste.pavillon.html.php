@@ -27,6 +27,7 @@
       <th scope="col">Nom Pavillon</th>
       <th scope="col">Numero Pavillon</th>
       <th scope="col">Nombre d'etages</th>
+      <th scope="col">Action</th>
     </tr>
     <?php foreach ($pavillons as $pavillon):?>
  
@@ -34,6 +35,9 @@
    <td><?=ucfirst($pavillon->nom_pavillon)?></td>
    <td><?=ucfirst($pavillon->num_pavillon)?></td>
    <td><?=ucfirst($pavillon->nbr_etage)?></td>
+   <td>
+        <a href="<?= WEBROOT.'pavillon/updatePavillon/'.$pavillon->id_pavillon?>" class="modifier"> Modifier</a>
+   </td>
  </tr>
 <?php endforeach ?>   
   </table>

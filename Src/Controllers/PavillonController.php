@@ -39,6 +39,15 @@ class PavillonController extends AbstractController{
         $this->render("pavillon/ajout.pavillon.html.php",["chambres"=>$chambres]);
     }
 
+    public function updatePavillon(){
+        $id = $this->request->query();
+        $chambres=$this->chambre->findByPavillon();
+        $pavillon_by_id=$this->repo->findById($id[0]);
+        $this->render("pavillon/ajout.pavillon.html.php",["chambres"=>$chambres,"pavillon_by_id"=>$pavillon_by_id]);
+    }
+
+
+
     public function addPavillon(){
         if ($this->request->isPost()) {
                 extract($this->request->request());
@@ -50,11 +59,7 @@ class PavillonController extends AbstractController{
                 $pavillon = new Pavillon;
                 $pavillon->setNomPavillon($nom)
                         ->setNbrEtage($nombre)
-                        ->setNumPavillon($numero);
-               
-            $test = Pavillon::fromArray($pavillon);
-            $main = $insert->insert($test);
-
+                        ->setNumPavillon($numero);  
             foreach ($disponible as  $value) {
                 $this->chambre->findById($value);
                 $this->chambreEn->setIdPavillons($main)
@@ -63,6 +68,17 @@ class PavillonController extends AbstractController{
                 $this->chambreMan->update($insert);
                 
             }
+            if ($id == null) {
+                $test = Pavillon::fromArray($pavillon);
+                $main = $insert->insert($test);
+            }else {
+                $pavillon->setIdPavillon($id);
+                $test = Pavillon::fromArrayUpdate($pavillon);
+               /*  var_dump($test);
+                die; */
+                $insert->update($test);
+            }
+
             $this->redirect("pavillon/listePavillon");
             }else {
                 Session::setSession("errors",$this->validator->getErreurs());
@@ -70,7 +86,4 @@ class PavillonController extends AbstractController{
             }
             }
         }
-
-
-
-}
+    }
