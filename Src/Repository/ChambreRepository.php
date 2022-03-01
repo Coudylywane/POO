@@ -46,7 +46,17 @@ class ChambreRepository extends AbstractRepository{
     $sql="select * from $this->tableName  where id_pavillon is null";
     return $this->dataBase->executeSelect($sql);
 }
+
+function findByPavillon2($nom_pav):array{
+    $sql="select * from $this->tableName c , pavillon p  
+    where 
+    c.id_pavillon=p.id_pavillon
+    and
+    nom_pavillon like ?";
+    return $this->dataBase->executeSelect($sql,[$nom_pav]);
+}
  
+
 
       
 }

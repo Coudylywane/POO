@@ -29,10 +29,35 @@ class EtudiantController extends AbstractController{
     }
 
 public function liste(){
-    $users=$this->repo->findEtudiantByrole();
+$users=$this->repo->findEtudiantByrole();
+////
+$chan=$this->repo->findEtuChambre();
+$nonchan=$this->repo->findEtuNonChambre();
+$etunb=$this->repo->findEtuNonBoursier();
+$etub=$this->repo->findEtuBoursier();
+
+    if ($this->request->isPost()) {
+       extract($this->request->request());
+       if ($bourse_type=='boursier') {
+        $users=$etub;
+       }elseif ($bourse_type=='non_boursier') {
+        $users=$etunb;
+       }
+    }
+
+    if ($this->request->isPost()) {
+        extract($this->request->request());
+        if ($chambre_type=='loge') {
+            $users=$chan;
+           }elseif ($chambre_type=='non_loge') {
+            $users=$nonchan;
+           }
+    }
     $this->render("etudiant/liste.etudiant.html.php",["users"=>$users]);
 
 }
+
+
 public function ajoutEtudiants(){
     $bourses=$this->bourse->findAll();
     $this->render("etudiant/ajout.etudiant.html.php",["bourses"=>$bourses]);

@@ -4,23 +4,29 @@
     Liste des Etudiants
   </h2>
   </div>
-  <div class="filtres">
-  <label class="labele-filtre" for="">Chambre</label>
-  <div class="select-style">
-      <select>
-          <option value="perso">Perso</option>
-          <option value="double">Double</option>
-      </select>
+  <form action="<?=WEBROOT."etudiant/liste"?>" method="post" >
+    <div class="filtres">
+        <label class="labele-filtre" for="">Chambre</label>
+          <div class="select-style">
+                <select name="chambre_type">
+                <option value="null">Choisir</option>
+                    <option value="loge">loge</option>
+                    <option value="non_loge">Non loge</option>
+                </select>
+          </div>
+        <label class="labele-filtre ml-2" for="">Bourse</label>
+          <div class="select-style">
+              <select name="bourse_type">
+                  <option value="null">Choisir</option>
+                  <option value="boursier">Boursier</option>
+                  <option value="non_boursier">Non Boursier</option>
+              </select>
+          </div>
+              <button type="submit" class="ok" name="filtre">OK</button>
     </div>
-    <label class="labele-filtre" for="">Bourse</label>
-    <div class="select-style">
-      <select>
-          <option value="demi-bourse">Demi-Bourse</option>
-          <option value="bourse-entier">Bourse-Entier</option>
-      </select>
-    </div>
-    <button type="button" class="ok">OK</button>
-  </div>
+  </form>
+      
+   
 <div class="tables">
   <table>
     <tr>
@@ -31,7 +37,6 @@
       <th scope="col">Adresse</th>
       <th scope="col">Type Bourse</th>
       <th scope="col">Type Chambre</th>
-      <th scope="col">Action</th>
     </tr>
     <?php foreach ($users as $user):?>
       <tr>
@@ -41,11 +46,7 @@
         <td><?=ucfirst($user->date_naissance)?></td>
         <td><?=ucfirst($user->adresse)?></td>
         <td><?=ucfirst($user->type_bourse)?></td>
-        <td><?=ucfirst($user->num_chambre)?></td>
-        <td>
-
-
-        </td>
+        <td><?=ucfirst($user->nom_type_chambre)?></td>
         <!-- WEBROOT."etudiant/ajoutEtudiants" -->
 
       </tr>

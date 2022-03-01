@@ -14,7 +14,6 @@ use App\Repository\TypeChambreRepository;
 
 class ChambreController extends AbstractController{
     private  TypeChambreRepository $type;
-    private  ChambreRepository $chambre ;
     private  PavillonRepository $pavillon;
     private Request $request;
     private ChambreRepository $repo ;
@@ -33,6 +32,13 @@ class ChambreController extends AbstractController{
 
     public function listeChambre(){
         $chambres=$this->repo->findChambreByEtat('non_archivee');
+        $pavil=$this->repo->findByPavillon2($chambres);
+        if ($this->request->isPost()) {
+            extract($this->request->request());
+            if ($pav==$chambre->id_pavillon) {
+                $users=$pavil;
+            }
+         }
         $this->render("chambre/liste.chambre.html.php",["chambres"=>$chambres]);
     
     }

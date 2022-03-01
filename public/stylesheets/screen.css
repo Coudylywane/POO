@@ -518,21 +518,23 @@ h2 {
   height: 30px;
   border-radius: 5px;
   margin-left: 38%;
+  cursor: pointer;
 }
 
-/* line 301, ../sass/screen.scss */
+/* line 302, ../sass/screen.scss */
 .etu {
   background-color: #1B2265;
   color: white;
   height: 30px;
 }
 
-/* line 306, ../sass/screen.scss */
+/* line 307, ../sass/screen.scss */
 .etu h2 {
   align-items: center;
 }
 
-/* line 314, ../sass/screen.scss */
+/* line 311, ../sass/screen.scss */
+pointer
 .selecte-style {
   width: 620px;
   border-radius: 3px;
@@ -547,7 +549,7 @@ h2 {
   padding: 9px;
 }
 
-/* line 328, ../sass/screen.scss */
+/* line 329, ../sass/screen.scss */
 .selecte-style select {
   padding: 5px 8px;
   width: 130%;
@@ -560,7 +562,7 @@ h2 {
   appearance: none;
 }
 
-/* line 339, ../sass/screen.scss */
+/* line 340, ../sass/screen.scss */
 .selecte-style:after {
   top: 50%;
   left: 85%;
@@ -577,12 +579,12 @@ h2 {
   z-index: 100;
 }
 
-/* line 354, ../sass/screen.scss */
+/* line 355, ../sass/screen.scss */
 .selecte-style select:focus {
   outline: 0;
 }
 
-/* line 359, ../sass/screen.scss */
+/* line 360, ../sass/screen.scss */
 .form-controles input {
   border: 2px solid #f0f0f0;
   border-radius: 4px;
@@ -593,14 +595,14 @@ h2 {
   margin-left: 6px;
 }
 
-/* line 369, ../sass/screen.scss */
+/* line 370, ../sass/screen.scss */
 .form-controles {
   margin-bottom: 10px;
   padding-bottom: 20px;
   position: relative;
 }
 
-/* line 375, ../sass/screen.scss */
+/* line 376, ../sass/screen.scss */
 .form-controles label {
   color: #777;
   display: block;
@@ -608,23 +610,23 @@ h2 {
   margin-left: 21px;
 }
 
-/* line 385, ../sass/screen.scss */
+/* line 386, ../sass/screen.scss */
 .form-controles input:focus {
   outline: 0;
   border-color: #777;
 }
 
-/* line 390, ../sass/screen.scss */
+/* line 391, ../sass/screen.scss */
 .form-controles.success input {
   border-color: var(--success-color);
 }
 
-/* line 394, ../sass/screen.scss */
+/* line 395, ../sass/screen.scss */
 .form-controles.erroor input {
   border-color: var(--error-color);
 }
 
-/* line 398, ../sass/screen.scss */
+/* line 399, ../sass/screen.scss */
 .form-controles small {
   color: var(--error-color);
   position: absolute;
@@ -632,7 +634,7 @@ h2 {
   left: 0;
 }
 
-/* line 405, ../sass/screen.scss */
+/* line 406, ../sass/screen.scss */
 .form-controles.erroor small {
   visibility: visible;
 }
