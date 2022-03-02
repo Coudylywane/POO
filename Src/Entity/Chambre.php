@@ -5,7 +5,7 @@ namespace App\Entity;
 class Chambre {
     private int $id_chambre;
     private string $num_chambre;
-    private int $num_etage;
+    private string $num_etage;
     private int|null $id_pavillons;
     private int $id_type_chambre;
     private string $etat ;
@@ -39,29 +39,6 @@ class Chambre {
    
    
 
-    /**
-     * Get the value of num_etage
-     *
-     * @return  int
-     */
-    public function getNumEtage()
-    {
-        return $this->num_etage;
-    }
-
-    /**
-     * Set the value of num_etage
-     *
-     * @param  int  $num_etage
-     *
-     * @return  self
-     */
-    public function setNumEtage(int $num_etage)
-    {
-        $this->num_etage = $num_etage;
-
-        return $this;
-    }
 
     
 
@@ -104,17 +81,19 @@ class Chambre {
     public static function fromArrayUpdate(object $chambre): array
     {
         $array = array_values((array)$chambre);
-        $array[]=$array[1];
-        $array[]=$array[2];
-        $array[]=$array[4];
-        $array[]=$array[3];
-        $array[]=$array[0];
+         $array[]=$array[1];
+         $array[]=$array[2];
+         $array[]=$array[4];
+         $array[]=$array[3];
+         $array[]=$array[5];
+         $array[]=$array[0];
 
         unset($array[0]);
         unset($array[1]);
         unset($array[2]);
         unset($array[3]);
         unset($array[4]);
+        unset($array[5]);
 
         return array_values($array);
     }
@@ -223,6 +202,30 @@ class Chambre {
     public function setEtat(string $etat)
     {
         $this->etat = $etat;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of num_etage
+     *
+     * @return  string
+     */
+    public function getNumEtage()
+    {
+        return $this->num_etage;
+    }
+
+    /**
+     * Set the value of num_etage
+     *
+     * @param  string  $num_etage
+     *
+     * @return  self
+     */
+    public function setNumEtage(string $num_etage)
+    {
+        $this->num_etage = $num_etage;
 
         return $this;
     }

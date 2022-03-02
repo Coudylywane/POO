@@ -31,17 +31,15 @@ class ChambreController extends AbstractController{
 
 
     public function listeChambre(){
-        $chambres=$this->repo->findChambreByEtat('non_archivee');
-        $pavil=$this->repo->findByPavillon2($chambres);
-        if ($this->request->isPost()) {
-            extract($this->request->request());
-            if ($pav==$chambre->id_pavillon) {
-                $users=$pavil;
-            }
-         }
-        $this->render("chambre/liste.chambre.html.php",["chambres"=>$chambres]);
-    
-    }
+        extract($this->request->request());
+        $pavillons = $this->repo->findChambreByEtat('non_archivee');
+        if (isset($ok)) {
+            $chambres=$this->repo->findByPavillon2($pav);
+        }else {
+            $chambres=$this->repo->findChambreByEtat('non_archivee');
+        }
+        $this->render("chambre/liste.chambre.html.php",["chambres"=>$chambres,'pavillons'=>$pavillons]);
+        }
 
 
     public function voirArchiver(){
@@ -115,7 +113,10 @@ class ChambreController extends AbstractController{
                         $insert->insert($test);
                     }else{
                         $chambre->setIdChambre($id);
+                        $chambre->setEtat('non_archivee');
                         $test = $chambre->fromArrayUpdate($chambre);
+                       /*  var_dump($test);
+                        die; */
                         $insert->update($test);                        
                     }
                     

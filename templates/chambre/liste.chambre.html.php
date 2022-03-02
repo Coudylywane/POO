@@ -9,12 +9,12 @@
         <label class="labele-filtre" for="">Pavillon</label>
           <div class="select-style">
             <select name="pav">
-            <?php foreach ($chambres as $chambre):?>
-                <option value="<?=$chambre->id_pavillon?>"><?=ucfirst($chambre->nom_pavillon)?></option>
+            <?php foreach ($pavillons as $chambre):?>
+                <option value="<?=$chambre->nom_pavillon?>"><?=ucfirst($chambre->nom_pavillon)?></option>
               <?php endforeach ?>   
             </select>
           </div>
-          <button type="submit" class="ok">OK</button>
+          <button type="submit" name="ok" class="ok">OK</button>
     </div>
   </form>
 <div class="tables">

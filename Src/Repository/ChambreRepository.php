@@ -42,10 +42,16 @@ class ChambreRepository extends AbstractRepository{
      return $this->dataBase->executeSelect($sql,[$etat]);
   }
 
+
+
+
+
   function findByPavillon():array{
     $sql="select * from $this->tableName  where id_pavillon is null";
     return $this->dataBase->executeSelect($sql);
 }
+
+
 
 function findByPavillon2($nom_pav):array{
     $sql="select * from $this->tableName c , pavillon p  
