@@ -34,7 +34,7 @@
    <td><?=$chambre->nom_type_chambre?></td>
    <td><?=ucfirst($chambre->nom_pavillon)?></td>
    <td>
-        <a href="<?= WEBROOT.'chambre/updateChambre/'.$chambre->id_chambre?>" class="modifier"> Modifier</a>
+        <a href="<?= WEBROOT.'chambre/updateChambre/'.$chambre->id_chambre?>" class="modifier "style="color:white;"> Modifier</a>
         <a href="<?= WEBROOT.'chambre/archiverChambre/'.$chambre->id_chambre?>" class="archiver"> Archiver</a>
    </td>
 

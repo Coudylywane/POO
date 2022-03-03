@@ -36,7 +36,7 @@
    <td><?=ucfirst($pavillon->num_pavillon)?></td>
    <td><?=ucfirst($pavillon->nbr_etage)?></td>
    <td>
-        <a href="<?= WEBROOT.'pavillon/updatePavillon/'.$pavillon->id_pavillon?>" class="modifier"> Modifier</a>
+        <a href="<?= WEBROOT.'pavillon/updatePavillon/'.$pavillon->id_pavillon?>" class="modifier" style="color:white;"> Modifier</a>
    </td>
  </tr>
 <?php endforeach ?>   

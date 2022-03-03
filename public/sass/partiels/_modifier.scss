@@ -1,20 +1,23 @@
 a.modifier:link {
     display:block;
     text-decoration: none;
-    color: white;
     padding: 10px;
     background-color: #1B2265;
     border-radius: 2px;
+    width: 70%;
+    margin-right: 2%;
+
  
 }
 
-a.archiver:link {
+a.archiver {
     margin-top: 15px;
     display:block;
+    color: black;
     text-decoration: none;
-    color: white;
-    padding: 10px;
-    background-color: green;
+    padding: 10px ;
+    border: 1px dashed #1B2265;
     border-radius: 2px;
+    width: 70%;
 
 }

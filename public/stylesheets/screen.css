@@ -163,21 +163,23 @@ nav {
 a.modifier:link {
   display: block;
   text-decoration: none;
-  color: white;
   padding: 10px;
   background-color: #1B2265;
   border-radius: 2px;
+  width: 70%;
+  margin-right: 2%;
 }
 
-/* line 11, ../sass/partiels/_modifier.scss */
-a.archiver:link {
+/* line 13, ../sass/partiels/_modifier.scss */
+a.archiver {
   margin-top: 15px;
   display: block;
+  color: black;
   text-decoration: none;
-  color: white;
   padding: 10px;
-  background-color: green;
+  border: 1px dashed #1B2265;
   border-radius: 2px;
+  width: 70%;
 }
 
 /* line 1, ../sass/partiels/_table.scss */
