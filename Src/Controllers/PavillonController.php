@@ -2,7 +2,7 @@
 
 namespace App\Controllers;
 use App\Core\Request;
-use  App\Core\Session;
+use App\Core\Session;
 use App\Entity\Pavillon;
 use App\Core\AbstractController;
 use App\Entity\Chambre;
@@ -16,6 +16,7 @@ class PavillonController extends AbstractController{
     private PavillonRepository $pavillon ;
     private ChambreManager $chambreMan;
     private Chambre $chambreEn;
+    private ChambreRepository $chambreRe;
 
 
 
@@ -23,7 +24,7 @@ class PavillonController extends AbstractController{
     {
         parent::__construct();
         $this->repo= new PavillonRepository;
-        $this->chambre= new ChambreRepository;
+        $this->chambreRe= new ChambreRepository;
         $this->chambreMan= new ChambreManager;
         $this->chambreEn= new Chambre;
         $this->request = new Request;
@@ -35,13 +36,13 @@ class PavillonController extends AbstractController{
     }
 
     public function ajoutPavillon(){
-        $chambres=$this->chambre->findByPavillon();
+        $chambres=$this->chambreRe->findByPavillon();
         $this->render("pavillon/ajout.pavillon.html.php",["chambres"=>$chambres]);
     }
 
     public function updatePavillon(){
         $id = $this->request->query();
-        $chambres=$this->chambre->findByPavillon();
+        $chambres=$this->chambreRe->findByPavillon();
         $pavillon_by_id=$this->repo->findById($id[0]);
         $this->render("pavillon/ajout.pavillon.html.php",["chambres"=>$chambres,"pavillon_by_id"=>$pavillon_by_id]);
     }
@@ -61,24 +62,24 @@ class PavillonController extends AbstractController{
                         ->setNbrEtage($nombre)
                         ->setNumPavillon($numero);  
             foreach ($disponible as  $value) {
-                $this->chambre->findById($value);
+                $this->chambreRe->findById($value);
                 $this->chambreEn->setIdPavillons($main)
                                 ->setIdChambre($value);
-                $insert= Chambre::fromArray1($this->chambreEn);
-                $this->chambreMan->update($insert);
+                                // ->setEtat('non_archivee');
+
+                $inserte= Chambre::fromArray1($this->chambreEn);
+                $this->chambreMan->update1($inserte);
                 
             }
             if ($id == null) {
                 $test = Pavillon::fromArray($pavillon);
+                
                 $main = $insert->insert($test);
             }else {
                 $pavillon->setIdPavillon($id);
                 $test = Pavillon::fromArrayUpdate($pavillon);
-               /*  var_dump($test);
-                die; */
                 $insert->update($test);
             }
-
             $this->redirect("pavillon/listePavillon");
             }else {
                 Session::setSession("errors",$this->validator->getErreurs());

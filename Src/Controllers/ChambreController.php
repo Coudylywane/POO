@@ -75,12 +75,12 @@ class ChambreController extends AbstractController{
         $restor[0]->etat=='non_archivee' ? $etat = 'archivee' : $etat = 'non_archivee' ;
         $insert = new ChambreManager;
         $chambre= new Chambre;
-        $chambre->setIdChambre($id);
-        $chambre->setNumChambre($restor[0]->num_chambre);
-        $chambre->setNumEtage((int)$restor[0]->num_etage);
-        $chambre->setIdPavillons($restor[0]->id_pavillon);
-        $chambre->setIdTypeChambre($restor[0]->id_type_chambre);
-        $chambre->setEtat($etat);
+        $chambre->setIdChambre($id)
+                ->setNumChambre($restor[0]->num_chambre)
+                ->setNumEtage((int)$restor[0]->num_etage)
+                ->setIdPavillons($restor[0]->id_pavillon)
+                ->setIdTypeChambre($restor[0]->id_type_chambre)
+                ->setEtat($etat);
 
         $test = Chambre::fromArrayarchiver($chambre);  
         $insert->update($test);

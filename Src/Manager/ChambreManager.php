@@ -31,6 +31,15 @@ class ChambreManager extends AbstractManager {
         return $this->dataBase->executeUpdate($sql,$model);
       }
 
+      public  function update1(array $model):int{
+        $sql="UPDATE $this->tableName SET 
+                `id_pavillon`=?
+                WHERE $this->primaryKey  = ?" ;
+        return $this->dataBase->executeUpdate($sql,$model);
+      }
+
+
+
       public  function updateChambre(array $model):int{
         $sql="UPDATE $this->tableName SET 
                 `etat` = 'archiver'
