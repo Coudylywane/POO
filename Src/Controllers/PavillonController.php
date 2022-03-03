@@ -13,7 +13,7 @@ use App\Repository\PavillonRepository;
 
 class PavillonController extends AbstractController{
     private Request $request;
-    private PavillonRepository $pavillon ;
+    private PavillonRepository $repo ;
     private ChambreManager $chambreMan;
     private Chambre $chambreEn;
     private ChambreRepository $chambreRe;
@@ -32,6 +32,7 @@ class PavillonController extends AbstractController{
 
     public function listePavillon(){
         $pavillons=$this->repo->findAll();
+         
         $this->render("pavillon/liste.pavillon.html.php",["pavillons"=>$pavillons]);
     }
 

@@ -30,7 +30,6 @@ class EtudiantController extends AbstractController{
 
 public function liste(){
 $users=$this->repo->findEtudiantByrole();
-////
 $chan=$this->repo->findEtuChambre();
 $nonchan=$this->repo->findEtuNonChambre();
 $etunb=$this->repo->findEtuNonBoursier();
@@ -76,7 +75,7 @@ public function addEtudiant(){
             $this->validator->isVide($nom,"nom");
             $this->validator->isVide($prenom,"prenom");
             $this->validator->isVide($date,"date");
-            $this->validator->isVide($telephone,"telephone");
+            $this->validator->valide_telephone($telephone,"telephone");
         if ($this->validator->valid()) {
             $insert = new PersonneManager;
             $etu = new Etudiant;

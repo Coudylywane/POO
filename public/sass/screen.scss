@@ -7,16 +7,22 @@
 @import "partiels/menu";
 @import "partiels/modifier";
 @import "partiels/table";
+
+
 *{
     box-sizing: border-box;
     //overflow: hidden;
-  }
+}
+
+
 
 .container{
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
+
 
 .bleu {
   display: flex;
@@ -25,6 +31,7 @@
   height: 500px;
   background-color: #1B2265;
 }
+
 
 .blanc{
   display: flex;
@@ -143,6 +150,7 @@ height: 200px;
 
 *{
     box-sizing: border-box;
+    overflow: hidden;
 }
 
 
@@ -308,7 +316,7 @@ h2{
   align-items: center;
 
 }
-pointer
+
   
   ///////////////////////////////ajout chambre///////////////@at-root
 
@@ -326,6 +334,8 @@ pointer
     padding: 9px;
    
   }
+
+
   .selecte-style select {
     padding: 5px 8px;
     width: 130%;
@@ -337,6 +347,8 @@ pointer
     -moz-appearance: none;
     appearance: none;
   }
+
+
   .selecte-style:after {
     top: 50%;
     left: 85%;
@@ -366,6 +378,8 @@ pointer
     font-size: 14px;
     margin-left: 6px;
   }
+
+
 
   .form-controles{
     margin-bottom: 10px;
@@ -407,5 +421,8 @@ pointer
     visibility: visible;
 }
 
-  
+  ///////////////////////@at-root
+
+
+ 
       

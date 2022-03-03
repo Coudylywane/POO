@@ -75,7 +75,7 @@ if(Session::keyExist("errors")){
                     </div>
                     <div class="form-controles" id="boursier" style="display: none;">
                          <label for="">Type de Bourse</label>
-                         <select name="type_bourse"class="selecte-style" >
+                         <select name="type_bourse" >
                               <?php foreach ($bourses as $bourse):?>
                                    <option value="<?=$bourse->id_bourse?>"><?=$bourse->type_bourse?></option>
                               <?php endforeach ?>
